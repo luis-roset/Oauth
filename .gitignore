@@ -1,0 +1,11 @@
+# Local .terraform directories
+**/.terraform/*
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+
+# to change depending on the environment.
+*.tfvars
+*.tfvars.json
+*.lock.hcl
