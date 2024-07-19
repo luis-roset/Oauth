@@ -14,9 +14,13 @@ terraform {
   }
 }
 
+# TFE token used to connect to HCP to create the VCS connection
+
 provider "tfe" {
   token = var.tfe_token
 }
+
+# Would be possible to use gitlab provider to add the project and the branch in an automated way
 
 /*provider "gitlab" {
   token    = var.oauth_token
@@ -24,11 +28,12 @@ provider "tfe" {
 resource "gitlab_project" "dynamic_OAuth" {
  name = "dynamic-OAuth" # demo_repo will create. Change the repo name as per your repo.
  description = "My demo github repository" # this is the description field.
- visibility = "private" # Repository type private. There are two type available private and public.
+ visibility_level = "public"
 }
 resource "gitlab_branch" "main" {
- repository = gitlab_project.dynamic_OAuth.id
- branch     = "main"
+  name    = "example"
+  ref     = "main"
+  project = gitlab_project.dynamic_OAuth.id
 }*/
 
 resource "tfe_organization" "oauth" {
@@ -48,7 +53,7 @@ resource "tfe_workspace" "dynamic_vcs" {
   queue_all_runs       = false
   vcs_repo {
     branch             = "main"
-    identifier         = "luisroset/Oauth"
+    identifier         = "luisroset1/Oauth"
     oauth_token_id     = tfe_oauth_client.gitlab.oauth_token_id
   }
 }
