@@ -7,4 +7,5 @@
 
 `<github-username>/Oauth` repository created -> This is the repository where the created workspace will be attached to using the VCS connection.
 
-![architecture](image.png)
+![architecture](https://github.com/user-attachments/assets/98d945e1-f4a7-477c-960b-3e9e0b7ad227)
+
