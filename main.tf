@@ -53,7 +53,7 @@ resource "tfe_workspace" "dynamic_vcs" {
   queue_all_runs       = false
   vcs_repo {
     branch             = "main"
-    identifier         = "luisroset1/Oauth"
+    identifier         = "luisroset/Oauth"
     oauth_token_id     = tfe_oauth_client.gitlab.oauth_token_id
   }
 }
