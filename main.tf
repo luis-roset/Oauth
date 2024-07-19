@@ -52,19 +52,19 @@ resource "tfe_workspace" "dynamic_vcs" {
     oauth_token_id     = tfe_oauth_client.gitlab.oauth_token_id
   }
 }
-resource "tfe_variable" "tfe_token" {
-  key          = "oauth_token"
+resource "tfe_variable" "oauth_token" {
+  key          = "TF_VAR_oauth_token"
   value        = var.oauth_token
-  category     = "env"
+  category     = "terraform"
   workspace_id = tfe_workspace.dynamic_vcs.id
   description  = "a useful description"
   sensitive    = true
 }
 
-resource "tfe_variable" "oauth_token" {
+resource "tfe_variable" "tfe_token" {
   key          = "TFE_TOKEN"
   value        = var.tfe_token
-  category     = "terraform"
+  category     = "env"
   workspace_id = tfe_workspace.dynamic_vcs.id
   description  = "a useful description"
   sensitive    = true
